@@ -20,7 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 // @RequestMapping() : HTTP 요청에 클래스와 메서드를 매핑하기 위한 어노테이션
 // @RequestMapping(value="/main", method={RequestMethod.GET})
-// HTTP GET localhost:4000/main/**
+
+// HTTP localhost:4000/main/**
 @RequestMapping("/main")
 public class BasicController {
 
