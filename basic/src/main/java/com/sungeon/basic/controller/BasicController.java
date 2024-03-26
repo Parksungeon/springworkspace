@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 // Controller 레이어 : 
 // - 클라이언트와 서버간의 접점
-// - 클라이언트의 요청을 받고 해당 요청에 대한 응답을 클라이언트게 돌려주는 영역
+// - 클라이언트의 요청을 받고 해당 요청에 대한 응답을 클라이언트에게 돌려주는 영역
 // - 각 요청에 해당하는 URL 메서드를 작성하는 영역
 
 // @RestController : JSON 형태의 Response Body를 반환하는 Controller 임을 명시
@@ -43,7 +43,7 @@ public class BasicController {
     // 생정자를 통한 의존성 주입을 spring에서 권장 (의존성이 주입되지 않은 경우가 존재할 수 업기 때문)
     // - spring Framework에서 의존성 주입은 제어의 역전 (IoC)를 통해서 spring framework가 진행 (@Component를 사용해서 Spring Bean으로 등록된 class에 한해서)
 
-    // @Autowired : 등록된 Spring Bea을 제어의 역전을 통해서 읮노성을 주입하는 방법
+    // @Autowired : 등록된 Spring Bea을 제어의 역전을 통해서 의존성을 주입하는 방법
     // - 단, 생성자를 통한 의존성 주입에는 @Autowired를 생략해도 됨
 
     // @Autowired
