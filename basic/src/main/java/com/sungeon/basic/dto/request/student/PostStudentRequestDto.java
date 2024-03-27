@@ -22,5 +22,5 @@ public class PostStudentRequestDto {
     private String address;
 
     @NotNull
-    private boolean graduation;
+    private Boolean graduation;
 }
