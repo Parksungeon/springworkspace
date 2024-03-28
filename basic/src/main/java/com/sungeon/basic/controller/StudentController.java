@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sungeon.basic.dto.request.student.PostStudentRequestDto;
+import com.sungeon.basic.dto.request.student.PatchStudentRequestDto;
+import com.sungeon.basic.*;on.basic.dto.request.student.PostStudentRequestDto;
 import com.sungeon.basic.service.StudentService;
 
 import jakarta.validation.Valid;
@@ -22,38 +23,30 @@ public class StudentController {
 
     private final StudentService studentService;
 
-    /*
-    CREATE
-     */
-
+    // CREATE
     @PostMapping("/")
     public ResponseEntity<String> postStudent(
-
         @RequestBody @Valid PostStudentRequestDto requestBody
-
     ) {
         ResponseEntity<String> response = studentService.postStudent(requestBody);
         return response;
     }
 
-    /*
-    UPDATE
-     */
-    
+    // UPDATE
     @PatchMapping("/")
-    public ResponseEntity<?> patchStudent() {
-        return null;
+    public ResponseEntity<String> patchStudent(
+        @RequestBody @Valid PatchStudentRequestDto requestBody
+    ) {
+        ResponseEntity<String> response = studentService.patchStudent(requestBody);
+        return response;
     }
 
-    /*
-    DELETE
-     */
-
+    // DELETE
     @DeleteMapping("/{studentNumber}")
     public ResponseEntity<?> deleteStudent(
-        @PathVariable("studentNumber") Integer studentNumber  
+        @PathVariable("studentNumber") Integer studentNumber
     ) {
         return null;
     }
-
+    
 }

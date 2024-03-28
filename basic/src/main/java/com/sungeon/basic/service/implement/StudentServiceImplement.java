@@ -1,9 +1,11 @@
 package com.sungeon.basic.service.implement;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.sungeon.basic.dto.request.student.PatchStudentRequestDto;
 import com.sungeon.basic.dto.request.student.PostStudentRequestDto;
 import com.sungeon.basic.entity.StudentEntity;
 import com.sungeon.basic.repository.StudentRepository;
@@ -25,9 +27,25 @@ public class StudentServiceImplement implements StudentService {
         // 2. 생성한 인스턴스를 repository.save() 메서드로 저장
         StudentEntity studentEntity = new StudentEntity(dto);
         // save() : 저장 및 수정 (덮어쓰기)
-        studentRepository.save(studentEntity);
+        StudentEntity savedEntity = studentRepository.save(studentEntity);
 
-       return ResponseEntity.status(HttpStatus.CREATED).body("성공!");
+        return ResponseEntity.status(HttpStatus.CREATED).body("성공!");
+    }
+
+    @Override
+    public ResponseEntity<String> patchStudent(PatchStudentRequestDto dto) {
+
+        Integer studentNumber = dto.getStudentNumber();
+        String address = dto.getAddress();
+
+        // 1. student 클래스로 접근 (StudentRepository 사용)
+        StudentEntity studentEntity = studentRepository.
+        // 2. dto.studentNumber에 해당하는 인스턴스를 검색
+        findById(studentNumber).get();
+        // 3. 검색된 인스턴스의 address 값을 dto.address로 변경
+        studentEntity.setAddress(address);
+
+        return ResponseEntity.status(HttpStatus.OK).body("성공!");
     }
     
 }
