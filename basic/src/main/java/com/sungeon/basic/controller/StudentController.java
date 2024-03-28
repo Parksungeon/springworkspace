@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sungeon.basic.dto.request.student.PatchStudentRequestDto;
-import com.sungeon.basic.*;on.basic.dto.request.student.PostStudentRequestDto;
+import com.sungeon.basic.dto.request.student.PostStudentRequestDto;
 import com.sungeon.basic.service.StudentService;
 
 import jakarta.validation.Valid;
@@ -43,10 +43,11 @@ public class StudentController {
 
     // DELETE
     @DeleteMapping("/{studentNumber}")
-    public ResponseEntity<?> deleteStudent(
+    public ResponseEntity<String> deleteStudent(
         @PathVariable("studentNumber") Integer studentNumber
     ) {
-        return null;
+        ResponseEntity<String> response = studentService.deleteStudent(studentNumber);
+        return response;
     }
     
 }
