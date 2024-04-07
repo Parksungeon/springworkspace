@@ -1,4 +1,3 @@
-package com.example.board.dto.response;
 
 public interface ResponseMessage {
     String SUCCESS = "Success.";
@@ -11,5 +10,5 @@ public interface ResponseMessage {
     String SIGN_IN_FAIL = "Login information mismatch.";
     String AUTHORIZATION_FAIL = "Authorization Failed.";
     String NO_PERMISSION = "Do not have permission.";
-    String DATABASE_ERROR = "Database errordd.";
+    String DATABASE_ERROR = "Database error.";
 }
