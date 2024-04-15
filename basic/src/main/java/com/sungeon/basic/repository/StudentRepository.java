@@ -50,7 +50,7 @@ extends JpaRepository<StudentEntity, Integer> {
     int countByGraduation(Boolean graduation);
 
     // address가 '서울특별시' 이면서 graduation이 true인 레코드가 존재하는가?
-    boolean exitsByAddressAndGraduation(String address, Boolean graduation);
+    boolean existsByAddressAndGraduation(String address, Boolean graduation);
 
     // @Query :
     // - 쿼리 메서드 생성 방식만으로는 실제 SQL을 작성하는데 한계있음
@@ -95,7 +95,7 @@ extends JpaRepository<StudentEntity, Integer> {
          "graduation " +
     "FROM student " +
     "WHERE student_number = :student_number " + // param("student_number")  대입
-    "AND age > : age ", // param("age") 대입
+    "AND age > :age ", // param("age") 대입
     nativeQuery=true
     )
     List<StudentEntity> getStudent3(
